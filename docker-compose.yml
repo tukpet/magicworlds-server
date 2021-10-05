@@ -1,0 +1,24 @@
+version: '3'
+services:
+  magicworlds-postgres-development:
+    container_name: magicworlds-postgres-development
+    image: postgres:13.3-alpine
+    ports:
+      - 61616:5432
+    volumes:
+      - ./tmp/docker/magicworlds-postgresql-development:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: magicworlds
+      POSTGRES_PASSWORD: kdo4O3iKQ53K9ie2
+      POSTGRES_DB: magicworlds_dev
+  magicworlds-postgres-test:
+    container_name: magicworlds-postgres-test
+    image: postgres:13.3-alpine
+    ports:
+      - 61617:5432
+    volumes:
+      - ./tmp/docker/magicworlds-postgresql-test:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: magicworlds_test
+      POSTGRES_PASSWORD: kO91tieWJ95oeKQ2
+      POSTGRES_DB: magicworlds_test
